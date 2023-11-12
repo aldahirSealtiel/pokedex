@@ -1,0 +1,47 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.pokedex'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.pokedex"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        /***
+         * el versionName tendra el formato "Major, Minor, PATCH", donde Major es el cambio que hace
+         * que la version anterior no funcione correctamente y obliga al usuario a actualizar la app
+         * Minor cambia cuando se agregan nuevas caracteristicas a la app
+         * PATCH es cualquier cambio
+         * se inicia con el versionName "0.1.0" se cambia a 1.0.0 cuando se manda por primera vez
+         * a produccion
+        ***/
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
